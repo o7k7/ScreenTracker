@@ -1,1 +1,2 @@
 # ScreenTracker
+![LICENSE](/LICENSE.txt)
