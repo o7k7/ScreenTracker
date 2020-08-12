@@ -2,6 +2,7 @@ package com.orhunkupeli.screentracker
 
 import android.app.Application
 import android.util.Log
+import java.lang.Exception
 
 class ExampleApplication : Application(), ScreenLifecycleListener.Listener {
 
@@ -24,6 +25,11 @@ class ExampleApplication : Application(), ScreenLifecycleListener.Listener {
                 )
             }
             is LifecycleEvent.Activity -> {
+                try {
+                    lifecycleEvent.activity.javaClass.getMethod("test").invoke(lifecycleEvent.activity)
+                } catch (e: Exception) {
+
+                }
                 Log.e(
                     "TEST::",
                     lifecycleEvent.activityLifecycle + " " + lifecycleEvent.activity.localClassName

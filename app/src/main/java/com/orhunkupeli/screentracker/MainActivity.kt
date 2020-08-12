@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity(), ScreenLifecycleListener.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
         Handler().postDelayed({
             Intent(this, SideActivity::class.java).apply {
                 startActivity(this)
             }
         }, 5000)
-
         ExampleApplication.screenTracker!!.registerListener(this)
     }
 
@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity(), ScreenLifecycleListener.Listener {
                 )
             }
         }
+    }
+
+    fun test() {
+        Log.e("TEST::", "ORHUN")
     }
 
     override fun onDestroy() {
